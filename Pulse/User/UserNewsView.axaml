@@ -1,0 +1,651 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Pulse.User.UserNewsView">
+
+    <UserControl.Styles>
+        <Style Selector="Button.navButton">
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="FocusAdorner" Value="{x:Null}"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#141414"/>
+            <Setter Property="Background" Value="#EEFFFFFF"/>
+            <Setter Property="BorderBrush" Value="#55FFFFFF"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="20">
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          HorizontalContentAlignment="Center"
+                                          VerticalContentAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="Button.navButton.active">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#E32626"/>
+            <Setter Property="BorderBrush" Value="#E32626"/>
+        </Style>
+
+        <Style Selector="Button.buyButton">
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="FocusAdorner" Value="{x:Null}"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#E32626"/>
+            <Setter Property="BorderBrush" Value="#E32626"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="22">
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          HorizontalContentAlignment="Center"
+                                          VerticalContentAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="Button.cancelButton">
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="FocusAdorner" Value="{x:Null}"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#E32626"/>
+            <Setter Property="Background" Value="#EEFFFFFF"/>
+            <Setter Property="BorderBrush" Value="#E32626"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="22">
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          HorizontalContentAlignment="Center"
+                                          VerticalContentAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="Border.card">
+            <Setter Property="Background" Value="#BBFFFFFF"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="CornerRadius" Value="26"/>
+        </Style>
+
+        <Style Selector="ComboBox">
+            <Setter Property="Height" Value="58"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Foreground" Value="#141414"/>
+            <Setter Property="Background" Value="#EEFFFFFF"/>
+            <Setter Property="BorderBrush" Value="#55FFFFFF"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        </Style>
+    </UserControl.Styles>
+
+    <Grid>
+        <Image Source="avares://Pulse/Assets/Images/бегуны.png"
+               Stretch="UniformToFill"/>
+
+        <Rectangle Fill="#33000000"/>
+
+        <ScrollViewer Name="NewsScrollViewer"
+                      VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="40,30,40,150"
+                        Spacing="30"
+                        HorizontalAlignment="Center">
+
+                <Border Width="1100"
+                        Padding="0"
+                        CornerRadius="30"
+                        Background="#BBFFFFFF"
+                        BorderBrush="Transparent"
+                        BorderThickness="0"
+                        ClipToBounds="True">
+
+                    <StackPanel>
+                        <Border Background="#CC151515"
+                                BorderBrush="Transparent"
+                                BorderThickness="0"
+                                Padding="40,36">
+                            <StackPanel Spacing="12">
+                                <TextBlock Text="Новости"
+                                           FontSize="50"
+                                           FontWeight="Bold"
+                                           Foreground="White"/>
+
+                                <TextBlock Text="Акции, обновления клуба и полезная информация для клиентов."
+                                           FontSize="22"
+                                           Foreground="#CFCFCF"
+                                           TextWrapping="Wrap"/>
+
+                                <Border Height="4"
+                                        Width="120"
+                                        Background="#E32626"
+                                        CornerRadius="4"
+                                        HorizontalAlignment="Left"
+                                        Margin="0,6,0,0"/>
+                            </StackPanel>
+                        </Border>
+
+                        <StackPanel Spacing="30"
+                                    Margin="40">
+
+                            <TextBlock Text="Абонементы"
+                                       FontSize="34"
+                                       FontWeight="Bold"
+                                       Foreground="#141414"/>
+
+                            <Grid ColumnDefinitions="*,*,*"
+                                  ColumnSpacing="20">
+
+                                <Border Grid.Column="0"
+                                        Classes="card"
+                                        Padding="25">
+                                    <Grid RowDefinitions="Auto,Auto,*,Auto">
+                                        <TextBlock Grid.Row="0"
+                                                   Text="Месяц"
+                                                   FontSize="30"
+                                                   FontWeight="Bold"
+                                                   Foreground="#141414"/>
+
+                                        <TextBlock Grid.Row="1"
+                                                   Text="5 000 ₽"
+                                                   FontSize="36"
+                                                   FontWeight="Bold"
+                                                   Foreground="#E32626"
+                                                   Margin="0,12,0,0"/>
+
+                                        <TextBlock Grid.Row="2"
+                                                   Text="Подходит, чтобы попробовать клуб и начать тренировки."
+                                                   FontSize="19"
+                                                   Foreground="#6F6F6F"
+                                                   TextWrapping="Wrap"
+                                                   Margin="0,12,0,12"/>
+
+                                        <Button Grid.Row="3"
+                                                Content="КУПИТЬ"
+                                                Classes="buyButton"
+                                                Height="56"
+                                                HorizontalAlignment="Stretch"
+                                                Tag="1"
+                                                Click="OpenPurchasePanel"/>
+                                    </Grid>
+                                </Border>
+
+                                <Border Grid.Column="1"
+                                        Padding="25"
+                                        Background="#DD151515"
+                                        BorderBrush="Transparent"
+                                        BorderThickness="0"
+                                        CornerRadius="26">
+                                    <Grid RowDefinitions="Auto,Auto,*,Auto">
+                                        <Border Grid.Row="0"
+                                                Background="#E32626"
+                                                CornerRadius="12"
+                                                Padding="10,4"
+                                                HorizontalAlignment="Right"
+                                                VerticalAlignment="Top"
+                                                Margin="0,-10,-10,0">
+                                            <TextBlock Text="ВЫГОДНО"
+                                                       Foreground="White"
+                                                       FontSize="14"
+                                                       FontWeight="Bold"/>
+                                        </Border>
+
+                                        <TextBlock Grid.Row="0"
+                                                   Text="Полгода"
+                                                   FontSize="30"
+                                                   FontWeight="Bold"
+                                                   Foreground="White"/>
+
+                                        <TextBlock Grid.Row="1"
+                                                   Text="16 000 ₽"
+                                                   FontSize="36"
+                                                   FontWeight="Bold"
+                                                   Foreground="White"
+                                                   Margin="0,12,0,0"/>
+
+                                        <TextBlock Grid.Row="2"
+                                                   Text="Выгодный вариант для регулярных тренировок."
+                                                   FontSize="19"
+                                                   Foreground="#CFCFCF"
+                                                   TextWrapping="Wrap"
+                                                   Margin="0,12,0,12"/>
+
+                                        <Button Grid.Row="3"
+                                                Content="КУПИТЬ"
+                                                Classes="buyButton"
+                                                Height="56"
+                                                HorizontalAlignment="Stretch"
+                                                Tag="2"
+                                                Click="OpenPurchasePanel"/>
+                                    </Grid>
+                                </Border>
+
+                                <Border Grid.Column="2"
+                                        Classes="card"
+                                        Padding="25">
+                                    <Grid RowDefinitions="Auto,Auto,*,Auto">
+                                        <TextBlock Grid.Row="0"
+                                                   Text="Год"
+                                                   FontSize="30"
+                                                   FontWeight="Bold"
+                                                   Foreground="#141414"/>
+
+                                        <TextBlock Grid.Row="1"
+                                                   Text="30 000 ₽"
+                                                   FontSize="36"
+                                                   FontWeight="Bold"
+                                                   Foreground="#E32626"
+                                                   Margin="0,12,0,0"/>
+
+                                        <TextBlock Grid.Row="2"
+                                                   Text="Максимальная выгода для постоянных клиентов."
+                                                   FontSize="19"
+                                                   Foreground="#6F6F6F"
+                                                   TextWrapping="Wrap"
+                                                   Margin="0,12,0,12"/>
+
+                                        <Button Grid.Row="3"
+                                                Content="КУПИТЬ"
+                                                Classes="buyButton"
+                                                Height="56"
+                                                HorizontalAlignment="Stretch"
+                                                Tag="3"
+                                                Click="OpenPurchasePanel"/>
+                                    </Grid>
+                                </Border>
+                            </Grid>
+
+                            <TextBlock Text="Новости клуба"
+                                       FontSize="34"
+                                       FontWeight="Bold"
+                                       Foreground="#141414"/>
+
+                            <Grid ColumnDefinitions="*,*"
+                                  RowDefinitions="Auto,Auto,Auto"
+                                  ColumnSpacing="20"
+                                  RowSpacing="20">
+
+                                <Border Grid.Row="0"
+                                        Grid.Column="0"
+                                        Classes="card"
+                                        ClipToBounds="True"
+                                        Cursor="Hand"
+                                        PointerPressed="OpenNewsDetails"
+                                        Tag="Новые тренажёры в зале">
+                                    <StackPanel>
+                                        <Border Height="240"
+                                                Background="#151515"
+                                                BorderBrush="Transparent"
+                                                BorderThickness="0"
+                                                ClipToBounds="True">
+                                            <Image Source="avares://Pulse/Assets/Images/новые.png"
+                                                   Stretch="UniformToFill"/>
+                                        </Border>
+
+                                        <StackPanel Margin="24" Spacing="10">
+                                            <TextBlock Text="24.04.2026"
+                                                       Foreground="#E32626"
+                                                       FontSize="18"
+                                                       FontWeight="Bold"/>
+                                            <TextBlock Text="Новые тренажёры в зале"
+                                                       Foreground="#141414"
+                                                       FontSize="28"
+                                                       FontWeight="Bold"
+                                                       TextWrapping="Wrap"/>
+                                            <TextBlock Text="Мы обновили оборудование для силовых тренировок. Теперь тренироваться стало ещё удобнее и безопаснее."
+                                                       Foreground="#6F6F6F"
+                                                       FontSize="20"
+                                                       TextWrapping="Wrap"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+
+                                <Border Grid.Row="0"
+                                        Grid.Column="1"
+                                        Classes="card"
+                                        ClipToBounds="True"
+                                        Cursor="Hand"
+                                        PointerPressed="OpenNewsDetails"
+                                        Tag="Акция на абонементы">
+                                    <StackPanel>
+                                        <Border Height="240"
+                                                Background="#151515"
+                                                BorderBrush="Transparent"
+                                                BorderThickness="0"
+                                                ClipToBounds="True">
+                                            <Image Source="avares://Pulse/Assets/Images/абонемент.png"
+                                                   Stretch="UniformToFill"/>
+                                        </Border>
+
+                                        <StackPanel Margin="24" Spacing="10">
+                                            <TextBlock Text="23.04.2026"
+                                                       Foreground="#E32626"
+                                                       FontSize="18"
+                                                       FontWeight="Bold"/>
+                                            <TextBlock Text="Акция на абонементы"
+                                                       Foreground="#141414"
+                                                       FontSize="28"
+                                                       FontWeight="Bold"
+                                                       TextWrapping="Wrap"/>
+                                            <TextBlock Text="При покупке абонемента начисляется кэшбек на баланс клиента."
+                                                       Foreground="#6F6F6F"
+                                                       FontSize="20"
+                                                       TextWrapping="Wrap"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+
+                                <Border Grid.Row="1"
+                                        Grid.Column="0"
+                                        Classes="card"
+                                        ClipToBounds="True"
+                                        Cursor="Hand"
+                                        PointerPressed="OpenNewsDetails"
+                                        Tag="Конкурс среди клиентов">
+                                    <StackPanel>
+                                        <Border Height="240"
+                                                Background="#151515"
+                                                BorderBrush="Transparent"
+                                                BorderThickness="0"
+                                                ClipToBounds="True">
+                                            <Image Source="avares://Pulse/Assets/Images/кубок.png"
+                                                   Stretch="UniformToFill"/>
+                                        </Border>
+
+                                        <StackPanel Margin="24" Spacing="10">
+                                            <TextBlock Text="22.04.2026"
+                                                       Foreground="#E32626"
+                                                       FontSize="18"
+                                                       FontWeight="Bold"/>
+                                            <TextBlock Text="Конкурс среди клиентов"
+                                                       Foreground="#141414"
+                                                       FontSize="28"
+                                                       FontWeight="Bold"
+                                                       TextWrapping="Wrap"/>
+                                            <TextBlock Text="Участвуй в клубном челлендже, выполняй тренировки и получай бонусы на баланс."
+                                                       Foreground="#6F6F6F"
+                                                       FontSize="20"
+                                                       TextWrapping="Wrap"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+
+                                <Border Grid.Row="1"
+                                        Grid.Column="1"
+                                        Classes="card"
+                                        ClipToBounds="True"
+                                        Cursor="Hand"
+                                        PointerPressed="OpenNewsDetails"
+                                        Tag="Обновлены раздевалки">
+                                    <StackPanel>
+                                        <Border Height="240"
+                                                Background="#151515"
+                                                BorderBrush="Transparent"
+                                                BorderThickness="0"
+                                                ClipToBounds="True">
+                                            <Image Source="avares://Pulse/Assets/Images/раздевалка.png"
+                                                   Stretch="UniformToFill"/>
+                                        </Border>
+
+                                        <StackPanel Margin="24" Spacing="10">
+                                            <TextBlock Text="21.04.2026"
+                                                       Foreground="#E32626"
+                                                       FontSize="18"
+                                                       FontWeight="Bold"/>
+                                            <TextBlock Text="Обновлены раздевалки"
+                                                       Foreground="#141414"
+                                                       FontSize="28"
+                                                       FontWeight="Bold"
+                                                       TextWrapping="Wrap"/>
+                                            <TextBlock Text="Мы сделали зону раздевалок удобнее: появились новые шкафчики, зеркала и места для хранения."
+                                                       Foreground="#6F6F6F"
+                                                       FontSize="20"
+                                                       TextWrapping="Wrap"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+
+                                <Border Grid.Row="2"
+                                        Grid.Column="0"
+                                        Classes="card"
+                                        ClipToBounds="True"
+                                        Cursor="Hand"
+                                        PointerPressed="OpenNewsDetails"
+                                        Tag="Новое расписание йоги">
+                                    <StackPanel>
+                                        <Border Height="240"
+                                                Background="#151515"
+                                                BorderBrush="Transparent"
+                                                BorderThickness="0"
+                                                ClipToBounds="True">
+                                            <Image Source="avares://Pulse/Assets/Images/йога.png"
+                                                   Stretch="UniformToFill"/>
+                                        </Border>
+
+                                        <StackPanel Margin="24" Spacing="10">
+                                            <TextBlock Text="20.04.2026"
+                                                       Foreground="#E32626"
+                                                       FontSize="18"
+                                                       FontWeight="Bold"/>
+                                            <TextBlock Text="Новое расписание йоги"
+                                                       Foreground="#141414"
+                                                       FontSize="28"
+                                                       FontWeight="Bold"
+                                                       TextWrapping="Wrap"/>
+                                            <TextBlock Text="Добавили дополнительные вечерние занятия по йоге."
+                                                       Foreground="#6F6F6F"
+                                                       FontSize="20"
+                                                       TextWrapping="Wrap"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+
+                                <Border Grid.Row="2"
+                                        Grid.Column="1"
+                                        Classes="card"
+                                        ClipToBounds="True"
+                                        Cursor="Hand"
+                                        PointerPressed="OpenNewsDetails"
+                                        Tag="Персональные тренировки">
+                                    <StackPanel>
+                                        <Border Height="240"
+                                                Background="#151515"
+                                                BorderBrush="Transparent"
+                                                BorderThickness="0"
+                                                ClipToBounds="True">
+                                            <Image Source="avares://Pulse/Assets/Images/тренер.png"
+                                                   Stretch="UniformToFill"/>
+                                        </Border>
+
+                                        <StackPanel Margin="24" Spacing="10">
+                                            <TextBlock Text="19.04.2026"
+                                                       Foreground="#E32626"
+                                                       FontSize="18"
+                                                       FontWeight="Bold"/>
+                                            <TextBlock Text="Персональные тренировки"
+                                                       Foreground="#141414"
+                                                       FontSize="28"
+                                                       FontWeight="Bold"
+                                                       TextWrapping="Wrap"/>
+                                            <TextBlock Text="Теперь можно приобрести разовые персональные тренировки."
+                                                       Foreground="#6F6F6F"
+                                                       FontSize="20"
+                                                       TextWrapping="Wrap"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                            </Grid>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+
+        <Border Margin="24,0,24,24"
+                Padding="16"
+                Background="#CCFFFFFF"
+                BorderBrush="#66FFFFFF"
+                BorderThickness="1"
+                CornerRadius="26"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom">
+            <StackPanel Orientation="Horizontal" Spacing="12">
+                <Button Classes="navButton" Content="ГЛАВНАЯ" Width="150" Height="56" Click="OpenMainClubPage"/>
+                <Button Classes="navButton" Content="ПОИСК ЗАНЯТИЙ" Width="180" Height="56" Click="OpenSchedulePage"/>
+                <Button Classes="navButton active" Content="НОВОСТИ" Width="150" Height="56"/>
+                <Button Classes="navButton" Content="КУПЛЕННЫЕ ЗАНЯТИЯ" Width="220" Height="56" Click="OpenMyTrainingsPage"/>
+                <Button Classes="navButton" Content="ПРОФИЛЬ" Width="150" Height="56" Click="OpenProfilePage"/>
+            </StackPanel>
+        </Border>
+
+        <Grid Name="PurchaseOverlay"
+              Background="#99000000"
+              IsVisible="False">
+
+            <Border Width="620"
+                    Padding="0"
+                    CornerRadius="30"
+                    Background="#EEFFFFFF"
+                    BorderBrush="Transparent"
+                    BorderThickness="0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    ClipToBounds="True">
+
+                <Grid RowDefinitions="Auto,*">
+
+                    <Border Grid.Row="0"
+                            Background="#CC151515"
+                            BorderBrush="Transparent"
+                            BorderThickness="0"
+                            Padding="34,28"
+                            Margin="0,0,0,-10">
+                        <StackPanel Spacing="10">
+                            <TextBlock Text="Покупка абонемента"
+                                       Foreground="White"
+                                       FontSize="38"
+                                       FontWeight="Bold"
+                                       TextAlignment="Center"/>
+
+                            <Border Height="4"
+                                    Width="120"
+                                    Background="#E32626"
+                                    CornerRadius="4"
+                                    HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+
+                    <StackPanel Grid.Row="1"
+                                Spacing="20"
+                                Margin="34,44,34,34">
+
+                        <Border Name="PurchaseMessageBorder"
+                                Background="#33D92525"
+                                BorderBrush="#D92525"
+                                BorderThickness="1"
+                                CornerRadius="18"
+                                Padding="14"
+                                IsVisible="False">
+                            <TextBlock Name="PurchaseMessageText"
+                                       Foreground="#D92525"
+                                       FontSize="18"
+                                       TextWrapping="Wrap"
+                                       TextAlignment="Center"/>
+                        </Border>
+
+                        <Border Background="#BBFFFFFF"
+                                BorderBrush="Transparent"
+                                BorderThickness="0"
+                                CornerRadius="24"
+                                Padding="24">
+                            <StackPanel Spacing="16">
+
+                                <StackPanel Spacing="8">
+                                    <TextBlock Text="Абонемент"
+                                               Foreground="#141414"
+                                               FontSize="22"
+                                               FontWeight="Bold"/>
+                                    <ComboBox Name="AbonementComboBox"
+                                              SelectionChanged="AbonementChanged"/>
+                                </StackPanel>
+
+                                <Border Background="#EEFFFFFF"
+                                        BorderBrush="Transparent"
+                                        BorderThickness="0"
+                                        CornerRadius="20"
+                                        Padding="18">
+                                    <StackPanel Spacing="12">
+
+                                        <Grid ColumnDefinitions="*,Auto">
+                                            <TextBlock Text="Срок действия" Foreground="#6F6F6F" FontSize="20"/>
+                                            <TextBlock Name="PurchaseDurationText" Grid.Column="1" Text="0 дней" Foreground="#141414" FontSize="22" FontWeight="Bold"/>
+                                        </Grid>
+
+                                        <Grid ColumnDefinitions="*,Auto">
+                                            <TextBlock Text="Сумма" Foreground="#6F6F6F" FontSize="20"/>
+                                            <TextBlock Name="PurchasePriceText" Grid.Column="1" Text="0 ₽" Foreground="#141414" FontSize="22" FontWeight="Bold"/>
+                                        </Grid>
+
+                                        <Grid ColumnDefinitions="*,Auto">
+                                            <TextBlock Text="Скидка 3%" Foreground="#6F6F6F" FontSize="20"/>
+                                            <TextBlock Name="PurchaseDiscountText" Grid.Column="1" Text="0 ₽" Foreground="#6F6F6F" FontSize="22" FontWeight="Bold"/>
+                                        </Grid>
+
+                                        <Grid ColumnDefinitions="*,Auto">
+                                            <TextBlock Text="Кэшбек 7%" Foreground="#27AE60" FontSize="20" FontWeight="Bold"/>
+                                            <TextBlock Name="PurchaseCashbackText" Grid.Column="1" Text="0 ₽" Foreground="#27AE60" FontSize="22" FontWeight="Bold"/>
+                                        </Grid>
+
+                                        <Border Height="1" Background="#E0E0E0" Margin="0,4"/>
+
+                                        <Grid ColumnDefinitions="*,Auto">
+                                            <TextBlock Text="К списанию" Foreground="#E32626" FontSize="24" FontWeight="Bold"/>
+                                            <TextBlock Name="PurchaseTotalText" Grid.Column="1" Text="0 ₽" Foreground="#E32626" FontSize="26" FontWeight="Bold"/>
+                                        </Grid>
+                                    </StackPanel>
+                                </Border>
+                            </StackPanel>
+                        </Border>
+
+                        <Grid ColumnDefinitions="*,*"
+                              ColumnSpacing="16">
+                            <Button Grid.Column="0"
+                                    Classes="cancelButton"
+                                    Content="ОТМЕНА"
+                                    Height="60"
+                                    HorizontalAlignment="Stretch"
+                                    Click="ClosePurchasePanel"/>
+
+                            <Button Grid.Column="1"
+                                    Classes="buyButton"
+                                    Content="КУПИТЬ"
+                                    Height="60"
+                                    HorizontalAlignment="Stretch"
+                                    Click="BuySelectedAbonement"/>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,203 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Pulse.User.UserHomeView">
+
+    <UserControl.Styles>
+        <Style Selector="Button.navButton">
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="FocusAdorner" Value="{x:Null}"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#141414"/>
+            <Setter Property="Background" Value="#EEFFFFFF"/>
+            <Setter Property="BorderBrush" Value="#55FFFFFF"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="18,0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="20">
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          HorizontalContentAlignment="Center"
+                                          VerticalContentAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="Button.navButton.active">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#E32626"/>
+            <Setter Property="BorderBrush" Value="#E32626"/>
+        </Style>
+
+        <Style Selector="Button.primaryButton">
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="FocusAdorner" Value="{x:Null}"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#E32626"/>
+            <Setter Property="BorderBrush" Value="#E32626"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="22">
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          HorizontalContentAlignment="Center"
+                                          VerticalContentAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+    </UserControl.Styles>
+
+    <Grid>
+        <Image Source="avares://Pulse/Assets/Images/Бегун.png"
+               Stretch="UniformToFill"/>
+
+        <Rectangle Fill="#33000000"/>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <Grid Margin="40,40,40,150"
+                  MinHeight="650">
+
+                <Border Width="1000"
+                        CornerRadius="28"
+                        Background="#99FFFFFF"
+                        BorderThickness="0"
+                        ClipToBounds="True"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+
+                    <Grid ColumnDefinitions="1.05*,1.1*">
+
+                        <Border Grid.Column="0"
+                                Background="#CC111111"
+                                Padding="42"
+                                CornerRadius="28,0,0,28">
+                            <StackPanel Spacing="26"
+                                        VerticalAlignment="Center">
+
+                                <TextBlock Text="ПУЛЬС"
+                                           Foreground="#E32626"
+                                           FontSize="26"
+                                           FontWeight="Bold"/>
+
+                                <TextBlock Name="WelcomeText"
+                                           Text="Добро пожаловать!"
+                                           Foreground="White"
+                                           FontSize="46"
+                                           FontWeight="Bold"
+                                           TextWrapping="Wrap"
+                                           LineHeight="56"/>
+
+                                <TextBlock Name="DateText"
+                                           Text="Сегодняшняя дата"
+                                           Foreground="#CFCFCF"
+                                           FontSize="24"/>
+
+                                <Border Height="4"
+                                        Width="120"
+                                        Background="#E32626"
+                                        CornerRadius="4"
+                                        HorizontalAlignment="Left"/>
+                            </StackPanel>
+                        </Border>
+
+                        <Border Grid.Column="1"
+                                Background="#CCFFFFFF"
+                                Padding="42"
+                                CornerRadius="0,28,28,0">
+                            <StackPanel Spacing="26"
+                                        VerticalAlignment="Center">
+
+                                <TextBlock Text="Ближайшее занятие"
+                                           Foreground="#141414"
+                                           FontSize="34"
+                                           FontWeight="Bold"/>
+
+                                <Border Background="#BBFFFFFF"
+                                        BorderBrush="#55FFFFFF"
+                                        BorderThickness="1"
+                                        CornerRadius="26"
+                                        Padding="28">
+                                    <StackPanel Spacing="18">
+                                        <TextBlock Name="NearestTrainingTitleText"
+                                                   Text="Пока нет ближайших занятий"
+                                                   Foreground="#141414"
+                                                   FontSize="30"
+                                                   FontWeight="Bold"
+                                                   TextWrapping="Wrap"/>
+
+                                        <TextBlock Name="NearestTrainingInfoText"
+                                                   Text="Запишитесь на занятие через поиск занятий"
+                                                   Foreground="#6F6F6F"
+                                                   FontSize="20"
+                                                   TextWrapping="Wrap"/>
+
+                                        <Button Classes="primaryButton"
+                                                Content="ПЕРЕЙТИ К ПОИСКУ ЗАНЯТИЙ"
+                                                Height="62"
+                                                HorizontalAlignment="Stretch"
+                                                Click="OpenSchedulePage"/>
+                                    </StackPanel>
+                                </Border>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </Border>
+            </Grid>
+        </ScrollViewer>
+
+        <Border Margin="24,0,24,24"
+                Padding="16"
+                Background="#CCFFFFFF"
+                BorderBrush="#66FFFFFF"
+                BorderThickness="1"
+                CornerRadius="26"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom">
+            <StackPanel Orientation="Horizontal" Spacing="12">
+                <Button Classes="navButton"
+                        Content="ГЛАВНАЯ"
+                        Width="150"
+                        Height="56"
+                        Click="OpenMainClubPage"/>
+
+                <Button Classes="navButton"
+                        Content="ПОИСК ЗАНЯТИЙ"
+                        Width="180"
+                        Height="56"
+                        Click="OpenSchedulePage"/>
+
+                <Button Classes="navButton"
+                        Content="НОВОСТИ"
+                        Width="150"
+                        Height="56"
+                        Click="OpenNewsPage"/>
+
+                <Button Classes="navButton"
+                        Content="КУПЛЕННЫЕ ЗАНЯТИЯ"
+                        Width="220"
+                        Height="56"
+                        Click="OpenMyTrainingsPage"/>
+
+                <Button Classes="navButton"
+                        Content="ПРОФИЛЬ"
+                        Width="150"
+                        Height="56"
+                        Click="OpenProfilePage"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

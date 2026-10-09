@@ -1,0 +1,188 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Pulse.User.UserEditProfileView">
+
+    <UserControl.Styles>
+        <Style Selector="Button.actionButton">
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="FocusAdorner" Value="{x:Null}"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#E32626"/>
+            <Setter Property="BorderBrush" Value="#E32626"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="22">
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          HorizontalContentAlignment="Center"
+                                          VerticalContentAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="Button.cancelButton">
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="FocusAdorner" Value="{x:Null}"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#E32626"/>
+            <Setter Property="Background" Value="#FFFFFF"/>
+            <Setter Property="BorderBrush" Value="#E32626"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="22">
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          HorizontalContentAlignment="Center"
+                                          VerticalContentAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="TextBox">
+            <Setter Property="Height" Value="58"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Foreground" Value="#141414"/>
+            <Setter Property="Background" Value="#FFFFFF"/>
+            <Setter Property="BorderBrush" Value="#DADADA"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+    </UserControl.Styles>
+
+    <Grid Background="#F4F4F4">
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="40,30,40,40"
+                        HorizontalAlignment="Center">
+
+                <Border Width="900"
+                        Padding="0"
+                        CornerRadius="30"
+                        Background="#FFFFFF"
+                        BorderBrush="#E0E0E0"
+                        BorderThickness="1"
+                        ClipToBounds="True">
+
+                    <StackPanel>
+
+                        <Border Background="#151515"
+                                Padding="40,36">
+                            <StackPanel Spacing="12">
+                                <TextBlock Text="Изменить данные"
+                                           Foreground="White"
+                                           FontSize="50"
+                                           FontWeight="Bold"/>
+
+                                <TextBlock Text="Обновите личную информацию профиля"
+                                           Foreground="#CFCFCF"
+                                           FontSize="22"
+                                           TextWrapping="Wrap"/>
+
+                                <Border Height="4"
+                                        Width="120"
+                                        Background="#E32626"
+                                        CornerRadius="4"
+                                        HorizontalAlignment="Left"
+                                        Margin="0,6,0,0"/>
+                            </StackPanel>
+                        </Border>
+
+                        <StackPanel Spacing="24"
+                                    Margin="40">
+
+                            <Border Name="MessageBorder"
+                                    Background="#33D92525"
+                                    BorderBrush="#D92525"
+                                    BorderThickness="1"
+                                    CornerRadius="18"
+                                    Padding="16"
+                                    IsVisible="False">
+                                <TextBlock Name="MessageText"
+                                           Text=""
+                                           Foreground="#D92525"
+                                           FontSize="20"
+                                           TextWrapping="Wrap"
+                                           TextAlignment="Center"/>
+                            </Border>
+
+                            <Border Background="#F7F7F7"
+                                    BorderBrush="#E0E0E0"
+                                    BorderThickness="1"
+                                    CornerRadius="26"
+                                    Padding="30">
+
+                                <StackPanel Spacing="18">
+
+                                    <StackPanel Spacing="8">
+                                        <TextBlock Text="ФИО"
+                                                   Foreground="#141414"
+                                                   FontSize="22"
+                                                   FontWeight="Bold"/>
+                                        <TextBox Name="FullNameTextBox"
+                                                 Watermark="Введите ФИО"/>
+                                    </StackPanel>
+
+                                    <StackPanel Spacing="8">
+                                        <TextBlock Text="Email"
+                                                   Foreground="#141414"
+                                                   FontSize="22"
+                                                   FontWeight="Bold"/>
+                                        <TextBox Name="EmailTextBox"
+                                                 Watermark="Введите email"/>
+                                    </StackPanel>
+
+                                    <StackPanel Spacing="8">
+                                        <TextBlock Text="Телефон"
+                                                   Foreground="#141414"
+                                                   FontSize="22"
+                                                   FontWeight="Bold"/>
+                                        <TextBox Name="PhoneTextBox"
+                                                 Watermark="Введите телефон"/>
+                                    </StackPanel>
+
+                                    <StackPanel Spacing="8">
+                                        <TextBlock Text="Новый пароль"
+                                                   Foreground="#141414"
+                                                   FontSize="22"
+                                                   FontWeight="Bold"/>
+                                        <TextBox Name="PasswordTextBox"
+                                                 PasswordChar="•"
+                                                 Watermark="Оставьте пустым, если не хотите менять пароль"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+
+                            <Grid ColumnDefinitions="*,*"
+                                  ColumnSpacing="18"
+                                  HorizontalAlignment="Stretch">
+                                <Button Grid.Column="0"
+                                        Classes="actionButton"
+                                        Content="СОХРАНИТЬ"
+                                        Height="64"
+                                        HorizontalAlignment="Stretch"
+                                        Click="SaveProfile"/>
+
+                                <Button Grid.Column="1"
+                                        Classes="cancelButton"
+                                        Content="ОТМЕНА"
+                                        Height="64"
+                                        HorizontalAlignment="Stretch"
+                                        Click="CancelEdit"/>
+                            </Grid>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

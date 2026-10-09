@@ -1,0 +1,146 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Pulse.User.AdminClientsView">
+
+    <UserControl.Styles>
+        <Style Selector="Button.navButton">
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="FocusAdorner" Value="{x:Null}"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#141414"/>
+            <Setter Property="Background" Value="#FFFFFF"/>
+            <Setter Property="BorderBrush" Value="#E0E0E0"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="20">
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          HorizontalContentAlignment="Center"
+                                          VerticalContentAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="Button.navButton.active">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#E32626"/>
+            <Setter Property="BorderBrush" Value="#E32626"/>
+        </Style>
+
+        <Style Selector="Border.clientCard">
+            <Setter Property="Background" Value="#FFFFFF"/>
+            <Setter Property="BorderBrush" Value="#E0E0E0"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="26"/>
+            <Setter Property="Padding" Value="26"/>
+        </Style>
+    </UserControl.Styles>
+
+    <Grid Background="#F4F4F4">
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="40,30,40,150"
+                        HorizontalAlignment="Center">
+
+                <Border Width="1120"
+                        Padding="0"
+                        CornerRadius="30"
+                        Background="#FFFFFF"
+                        BorderBrush="#E0E0E0"
+                        BorderThickness="1"
+                        ClipToBounds="True">
+
+                    <StackPanel>
+                        <Border Background="#151515"
+                                Padding="40,36">
+                            <StackPanel Spacing="12">
+                                <TextBlock Text="Клиенты"
+                                           Foreground="White"
+                                           FontSize="50"
+                                           FontWeight="Bold"/>
+
+                                <TextBlock Text="Список клиентов клуба и их записей на занятия."
+                                           Foreground="#CFCFCF"
+                                           FontSize="22"
+                                           TextWrapping="Wrap"/>
+
+                                <Border Height="4"
+                                        Width="120"
+                                        Background="#E32626"
+                                        CornerRadius="4"
+                                        HorizontalAlignment="Left"
+                                        Margin="0,6,0,0"/>
+                            </StackPanel>
+                        </Border>
+
+                        <StackPanel Margin="40"
+                                    Spacing="20">
+
+                            <StackPanel Name="ClientsPanel"
+                                        Spacing="18">
+                                <Border Classes="clientCard">
+                                    <StackPanel Spacing="8">
+                                        <TextBlock Text="Загрузка клиентов..."
+                                                   Foreground="#141414"
+                                                   FontSize="28"
+                                                   FontWeight="Bold"/>
+                                        <TextBlock Text="Подождите немного"
+                                                   Foreground="#6F6F6F"
+                                                   FontSize="20"/>
+                                    </StackPanel>
+                                </Border>
+                            </StackPanel>
+
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+
+        <Border Margin="24,0,24,24"
+                Padding="16"
+                Background="#FFFFFF"
+                BorderBrush="#E0E0E0"
+                BorderThickness="1"
+                CornerRadius="26"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom">
+            <StackPanel Orientation="Horizontal"
+                        Spacing="12">
+                <Button Classes="navButton"
+                        Content="ГЛАВНАЯ"
+                        Width="150"
+                        Height="56"
+                        Click="OpenHomePage"/>
+
+                <Button Classes="navButton"
+                        Content="РАСПИСАНИЕ"
+                        Width="170"
+                        Height="56"
+                        Click="OpenSchedulePage"/>
+
+                <Button Classes="navButton"
+                        Content="ГРАФИК ТРЕНЕРОВ"
+                        Width="220"
+                        Height="56"
+                        Click="OpenTrainerTimesPage"/>
+
+                <Button Classes="navButton active"
+                        Content="КЛИЕНТЫ"
+                        Width="150"
+                        Height="56"/>
+
+                <Button Classes="navButton"
+                        Content="ПРОФИЛЬ"
+                        Width="150"
+                        Height="56"
+                        Click="OpenProfilePage"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

@@ -1,0 +1,152 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Pulse.User.UserMyTrainingsView">
+
+    <UserControl.Styles>
+        <Style Selector="Button.navButton">
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="FocusAdorner" Value="{x:Null}"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#141414"/>
+            <Setter Property="Background" Value="#EEFFFFFF"/>
+            <Setter Property="BorderBrush" Value="#55FFFFFF"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="20">
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          HorizontalContentAlignment="Center"
+                                          VerticalContentAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="Button.navButton.active">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#E32626"/>
+            <Setter Property="BorderBrush" Value="#E32626"/>
+        </Style>
+
+        <Style Selector="Border.card">
+            <Setter Property="Background" Value="#BBFFFFFF"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="CornerRadius" Value="26"/>
+            <Setter Property="Padding" Value="26"/>
+        </Style>
+    </UserControl.Styles>
+
+    <Grid>
+        <Image Source="avares://Pulse/Assets/Images/БАСТЕКБОЛ.png"
+               Stretch="UniformToFill"/>
+
+        <Rectangle Fill="#33000000"/>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="40,30,40,150"
+                        Spacing="24"
+                        HorizontalAlignment="Center">
+
+                <Border Width="1000"
+                        Padding="0"
+                        CornerRadius="30"
+                        Background="#99FFFFFF"
+                        BorderBrush="Transparent"
+                        BorderThickness="0"
+                        ClipToBounds="True">
+
+                    <StackPanel>
+                        <Border Background="#CC151515"
+                                BorderBrush="Transparent"
+                                BorderThickness="0"
+                                Padding="40,36"
+                                CornerRadius="30,30,0,0">
+                            <StackPanel Spacing="12">
+                                <TextBlock Text="Купленные занятия"
+                                           Foreground="White"
+                                           FontSize="50"
+                                           FontWeight="Bold"/>
+
+                                <TextBlock Text="Здесь отображаются разовые тренировки и записи на занятия."
+                                           Foreground="#CFCFCF"
+                                           FontSize="22"
+                                           TextWrapping="Wrap"/>
+
+                                <Border Height="4"
+                                        Width="120"
+                                        Background="#E32626"
+                                        CornerRadius="4"
+                                        HorizontalAlignment="Left"
+                                        Margin="0,6,0,0"/>
+                            </StackPanel>
+                        </Border>
+
+                        <StackPanel Name="TrainingsPanel"
+                                    Spacing="16"
+                                    Margin="40">
+
+                            <Border Classes="card">
+                                <StackPanel Spacing="8">
+                                    <TextBlock Text="Загрузка занятий..."
+                                               Foreground="#141414"
+                                               FontSize="26"
+                                               FontWeight="Bold"/>
+
+                                    <TextBlock Text="Подождите немного"
+                                               Foreground="#5F5F5F"
+                                               FontSize="20"/>
+                                </StackPanel>
+                            </Border>
+
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+
+        <Border Margin="24,0,24,24"
+                Padding="16"
+                Background="#CCFFFFFF"
+                BorderBrush="#66FFFFFF"
+                BorderThickness="1"
+                CornerRadius="26"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom">
+            <StackPanel Orientation="Horizontal" Spacing="12">
+                <Button Classes="navButton"
+                        Content="ГЛАВНАЯ"
+                        Width="150"
+                        Height="56"
+                        Click="OpenMainClubPage"/>
+
+                <Button Classes="navButton"
+                        Content="ПОИСК ЗАНЯТИЙ"
+                        Width="180"
+                        Height="56"
+                        Click="OpenSchedulePage"/>
+
+                <Button Classes="navButton"
+                        Content="НОВОСТИ"
+                        Width="150"
+                        Height="56"
+                        Click="OpenNewsPage"/>
+
+                <Button Classes="navButton active"
+                        Content="КУПЛЕННЫЕ ЗАНЯТИЯ"
+                        Width="220"
+                        Height="56"/>
+
+                <Button Classes="navButton"
+                        Content="ПРОФИЛЬ"
+                        Width="150"
+                        Height="56"
+                        Click="OpenProfilePage"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

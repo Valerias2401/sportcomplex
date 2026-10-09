@@ -1,0 +1,635 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Pulse.User.UserMainClubView">
+
+    <UserControl.Styles>
+        <Style Selector="Border.sectionCard">
+            <Setter Property="Background" Value="#BBFFFFFF"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="CornerRadius" Value="28"/>
+        </Style>
+
+        <Style Selector="TextBlock.pageTitle">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="54"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+
+        <Style Selector="TextBlock.sectionTitle">
+            <Setter Property="Foreground" Value="#141414"/>
+            <Setter Property="FontSize" Value="34"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+
+        <Style Selector="Border.trainerCard">
+            <Setter Property="Background" Value="#BBFFFFFF"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="CornerRadius" Value="24"/>
+            <Setter Property="Padding" Value="16"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+
+        <Style Selector="TextBlock.trainerName">
+            <Setter Property="Foreground" Value="#141414"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+
+        <Style Selector="TextBlock.trainerRole">
+            <Setter Property="Foreground" Value="#6F6F6F"/>
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+
+        <Style Selector="Button.primaryButton">
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="FocusAdorner" Value="{x:Null}"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#E32626"/>
+            <Setter Property="BorderBrush" Value="#E32626"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="22">
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          HorizontalContentAlignment="Center"
+                                          VerticalContentAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="Button.secondaryButton">
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="FocusAdorner" Value="{x:Null}"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#E32626"/>
+            <Setter Property="Background" Value="#EEFFFFFF"/>
+            <Setter Property="BorderBrush" Value="#E32626"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="22">
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          HorizontalContentAlignment="Center"
+                                          VerticalContentAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="Button.iconButton">
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="FocusAdorner" Value="{x:Null}"/>
+            <Setter Property="FontSize" Value="28"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#E32626"/>
+            <Setter Property="BorderBrush" Value="#E32626"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Width" Value="64"/>
+            <Setter Property="Height" Value="64"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="32">
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          HorizontalContentAlignment="Center"
+                                          VerticalContentAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="Button.navButton">
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="FocusAdorner" Value="{x:Null}"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#141414"/>
+            <Setter Property="Background" Value="#EEFFFFFF"/>
+            <Setter Property="BorderBrush" Value="#55FFFFFF"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="18,0"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="20">
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          HorizontalContentAlignment="Center"
+                                          VerticalContentAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="Button.navButton.active">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#E32626"/>
+            <Setter Property="BorderBrush" Value="#E32626"/>
+        </Style>
+    </UserControl.Styles>
+
+    <Grid>
+        <Image Source="avares://Pulse/Assets/Images/другое.png"
+               Stretch="UniformToFill"/>
+
+        <Rectangle Fill="#33000000"/>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="0,30,0,150"
+                        Spacing="28">
+
+                <TextBlock Classes="pageTitle"
+                           Text="Главная"
+                           Margin="40,0,0,0"/>
+
+                <Border Background="#CC151515"
+                        CornerRadius="0"
+                        ClipToBounds="True"
+                        Padding="0"
+                        BorderThickness="0"
+                        HorizontalAlignment="Stretch">
+                    <Grid ColumnDefinitions="1.7*,1*"
+                          HorizontalAlignment="Stretch">
+
+                        <Border Grid.Column="0"
+                                Height="420"
+                                Background="#151515"
+                                ClipToBounds="True">
+                            <Image Source="avares://Pulse/Assets/Images/зал.png"
+                                   Stretch="UniformToFill"/>
+                        </Border>
+
+                        <Border Grid.Column="1"
+                                Height="420"
+                                Background="#CC151515"
+                                Padding="36">
+                            <StackPanel Spacing="18"
+                                        VerticalAlignment="Center">
+                                <TextBlock Text="Наш адрес"
+                                           Foreground="White"
+                                           FontSize="30"
+                                           FontWeight="Bold"/>
+
+                                <TextBlock Text="г. Казань, ул. Баумана, 58А, фитнес-клуб «Пульс»"
+                                           Foreground="White"
+                                           FontSize="23"
+                                           FontWeight="SemiBold"
+                                           TextWrapping="Wrap"/>
+
+                                <TextBlock Text="Мы находимся в удобной части города: рядом остановки общественного транспорта, кафе и места для прогулок после тренировки."
+                                           Foreground="#D0D0D0"
+                                           FontSize="20"
+                                           TextWrapping="Wrap"/>
+
+                                <Border Height="4"
+                                        Width="120"
+                                        Background="#E32626"
+                                        CornerRadius="4"
+                                        HorizontalAlignment="Left"
+                                        Margin="0,4,0,0"/>
+
+                                <Button Classes="primaryButton"
+                                        Content="ПРОЛОЖИТЬ МАРШРУТ"
+                                        Height="60"
+                                        HorizontalAlignment="Stretch"
+                                        Margin="0,18,0,0"
+                                        Click="OpenRoute"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </Border>
+
+                <StackPanel Margin="40,0,40,0"
+                            Spacing="28">
+
+                    <Border Classes="sectionCard"
+                            Padding="32">
+                        <Grid ColumnDefinitions="1.5*,1*"
+                              ColumnSpacing="26">
+                            <StackPanel Grid.Column="0"
+                                        Spacing="16">
+                                <TextBlock Classes="sectionTitle"
+                                           Name="ZoneTitleText"
+                                           Text="Тренажёрный зал"/>
+
+                                <Border Height="360"
+                                        Background="#151515"
+                                        CornerRadius="26"
+                                        ClipToBounds="True">
+                                    <Grid>
+                                        <Image Name="ZoneImage"
+                                               Source="avares://Pulse/Assets/Images/зал.png"
+                                               Stretch="UniformToFill"/>
+
+                                        <Button Classes="iconButton"
+                                                Content="←"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center"
+                                                Margin="18,0,0,0"
+                                                Click="PrevZoneSlide"/>
+
+                                        <Button Classes="iconButton"
+                                                Content="→"
+                                                HorizontalAlignment="Right"
+                                                VerticalAlignment="Center"
+                                                Margin="0,0,18,0"
+                                                Click="NextZoneSlide"/>
+                                    </Grid>
+                                </Border>
+                            </StackPanel>
+
+                            <Border Grid.Column="1"
+                                    Background="#CC151515"
+                                    BorderBrush="Transparent"
+                                    BorderThickness="0"
+                                    CornerRadius="26"
+                                    Padding="30">
+                                <StackPanel Spacing="16"
+                                            VerticalAlignment="Center">
+                                    <TextBlock Name="ZoneAdvantagesTitleText"
+                                               Text="Преимущества"
+                                               Foreground="White"
+                                               FontSize="30"
+                                               FontWeight="Bold"
+                                               TextWrapping="Wrap"/>
+
+                                    <TextBlock Name="Advantage1Text"
+                                               Text="• Современные силовые тренажёры"
+                                               Foreground="#EAEAEA"
+                                               FontSize="21"
+                                               TextWrapping="Wrap"/>
+                                    <TextBlock Name="Advantage2Text"
+                                               Text="• Зона свободных весов"
+                                               Foreground="#EAEAEA"
+                                               FontSize="21"
+                                               TextWrapping="Wrap"/>
+                                    <TextBlock Name="Advantage3Text"
+                                               Text="• Удобное пространство для тренировок"
+                                               Foreground="#EAEAEA"
+                                               FontSize="21"
+                                               TextWrapping="Wrap"/>
+                                    <TextBlock Name="Advantage4Text"
+                                               Text="• Подходит для новичков и опытных клиентов"
+                                               Foreground="#EAEAEA"
+                                               FontSize="21"
+                                               TextWrapping="Wrap"/>
+                                    <TextBlock Name="Advantage5Text"
+                                               Text=""
+                                               Foreground="#EAEAEA"
+                                               FontSize="21"
+                                               TextWrapping="Wrap"/>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                    </Border>
+
+                    <Border Classes="sectionCard"
+                            Padding="32">
+                        <StackPanel Spacing="22">
+                            <TextBlock Classes="sectionTitle"
+                                       Text="Тренеры"/>
+
+                            <UniformGrid Columns="3"
+                                         Rows="2">
+
+                                <Border Classes="trainerCard"
+                                        Margin="0,0,18,18"
+                                        PointerPressed="OpenTrainer1">
+                                    <StackPanel Spacing="12">
+                                        <Border Height="240"
+                                                CornerRadius="22"
+                                                ClipToBounds="True"
+                                                Background="#151515">
+                                            <Image Source="avares://Pulse/Assets/Images/тренер2.png"
+                                                   Stretch="UniformToFill"/>
+                                        </Border>
+                                        <TextBlock Classes="trainerName"
+                                                   Text="Анна Смирнова"/>
+                                        <TextBlock Classes="trainerRole"
+                                                   Text="Персональный тренер"/>
+                                        <TextBlock Text="Силовые тренировки • похудение"
+                                                   Foreground="#E32626"
+                                                   FontSize="17"
+                                                   FontWeight="SemiBold"/>
+                                    </StackPanel>
+                                </Border>
+
+                                <Border Classes="trainerCard"
+                                        Margin="0,0,18,18"
+                                        PointerPressed="OpenTrainer2">
+                                    <StackPanel Spacing="12">
+                                        <Border Height="240"
+                                                CornerRadius="22"
+                                                ClipToBounds="True"
+                                                Background="#151515">
+                                            <Image Source="avares://Pulse/Assets/Images/тренер1.png"
+                                                   Stretch="UniformToFill"/>
+                                        </Border>
+                                        <TextBlock Classes="trainerName"
+                                                   Text="Максим Орлов"/>
+                                        <TextBlock Classes="trainerRole"
+                                                   Text="Тренер групповых программ"/>
+                                        <TextBlock Text="Функциональный тренинг • выносливость"
+                                                   Foreground="#E32626"
+                                                   FontSize="17"
+                                                   FontWeight="SemiBold"/>
+                                    </StackPanel>
+                                </Border>
+
+                                <Border Classes="trainerCard"
+                                        Margin="0,0,0,18"
+                                        PointerPressed="OpenTrainer3">
+                                    <StackPanel Spacing="12">
+                                        <Border Height="240"
+                                                CornerRadius="22"
+                                                ClipToBounds="True"
+                                                Background="#151515">
+                                            <Image Source="avares://Pulse/Assets/Images/тренер4.png"
+                                                   Stretch="UniformToFill"/>
+                                        </Border>
+                                        <TextBlock Classes="trainerName"
+                                                   Text="Екатерина Волкова"/>
+                                        <TextBlock Classes="trainerRole"
+                                                   Text="Персональный тренер"/>
+                                        <TextBlock Text="Растяжка • коррекция фигуры"
+                                                   Foreground="#E32626"
+                                                   FontSize="17"
+                                                   FontWeight="SemiBold"/>
+                                    </StackPanel>
+                                </Border>
+
+                                <Border Classes="trainerCard"
+                                        Margin="0,0,18,0"
+                                        PointerPressed="OpenTrainer4">
+                                    <StackPanel Spacing="12">
+                                        <Border Height="240"
+                                                CornerRadius="22"
+                                                ClipToBounds="True"
+                                                Background="#151515">
+                                            <Image Source="avares://Pulse/Assets/Images/тренер3.png"
+                                                   Stretch="UniformToFill"/>
+                                        </Border>
+                                        <TextBlock Classes="trainerName"
+                                                   Text="Илья Кузнецов"/>
+                                        <TextBlock Classes="trainerRole"
+                                                   Text="Тренер тренажёрного зала"/>
+                                        <TextBlock Text="Набор массы • техника упражнений"
+                                                   Foreground="#E32626"
+                                                   FontSize="17"
+                                                   FontWeight="SemiBold"/>
+                                    </StackPanel>
+                                </Border>
+
+                                <Border Classes="trainerCard"
+                                        Margin="0,0,18,0"
+                                        PointerPressed="OpenTrainer5">
+                                    <StackPanel Spacing="12">
+                                        <Border Height="240"
+                                                CornerRadius="22"
+                                                ClipToBounds="True"
+                                                Background="#151515">
+                                            <Image Source="avares://Pulse/Assets/Images/тренер5.png"
+                                                   Stretch="UniformToFill"/>
+                                        </Border>
+                                        <TextBlock Classes="trainerName"
+                                                   Text="Артём Михайлов"/>
+                                        <TextBlock Classes="trainerRole"
+                                                   Text="Тренер по йоге и пилатесу"/>
+                                        <TextBlock Text="Гибкость • осанка • восстановление"
+                                                   Foreground="#E32626"
+                                                   FontSize="17"
+                                                   FontWeight="SemiBold"/>
+                                    </StackPanel>
+                                </Border>
+
+                                <Border Classes="trainerCard"
+                                        PointerPressed="OpenTrainer6">
+                                    <StackPanel Spacing="12">
+                                        <Border Height="240"
+                                                CornerRadius="22"
+                                                ClipToBounds="True"
+                                                Background="#151515">
+                                            <Image Source="avares://Pulse/Assets/Images/тренер6.png"
+                                                   Stretch="UniformToFill"/>
+                                        </Border>
+                                        <TextBlock Classes="trainerName"
+                                                   Text="Даниил Морозов"/>
+                                        <TextBlock Classes="trainerRole"
+                                                   Text="Тренер по кардио"/>
+                                        <TextBlock Text="Кардио • выносливость • тонус"
+                                                   Foreground="#E32626"
+                                                   FontSize="17"
+                                                   FontWeight="SemiBold"/>
+                                    </StackPanel>
+                                </Border>
+
+                            </UniformGrid>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Classes="sectionCard"
+                            Padding="32">
+                        <Grid ColumnDefinitions="1.2*,1*"
+                              ColumnSpacing="26">
+                            <StackPanel Grid.Column="0"
+                                        Spacing="16">
+                                <TextBlock Classes="sectionTitle"
+                                           Text="Связаться с нами"/>
+                                <TextBlock Text="Почта: pulseclub@mail.ru"
+                                           Foreground="#6F6F6F"
+                                           FontSize="22"/>
+                                <TextBlock Text="Телефон: +7 (843) 211-94-36"
+                                           Foreground="#6F6F6F"
+                                           FontSize="22"/>
+
+                                <StackPanel Orientation="Horizontal"
+                                            Spacing="12"
+                                            Margin="0,12,0,0">
+                                    <Button Classes="secondaryButton"
+                                            Content="VK"
+                                            Width="90"
+                                            Height="54"
+                                            Click="OpenVk"/>
+
+                                    <Button Classes="secondaryButton"
+                                            Content="MAX"
+                                            Width="90"
+                                            Height="54"
+                                            Click="OpenMax"/>
+
+                                    <Button Classes="secondaryButton"
+                                            Content="Telegram"
+                                            Width="130"
+                                            Height="54"
+                                            Click="OpenTelegram"/>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <Border Grid.Column="1"
+                                    Background="#CC151515"
+                                    BorderBrush="Transparent"
+                                    BorderThickness="0"
+                                    CornerRadius="26"
+                                    Padding="26">
+                                <StackPanel Spacing="12"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center">
+                                    <TextBlock Text="Будем на связи"
+                                               Foreground="White"
+                                               FontSize="28"
+                                               FontWeight="Bold"
+                                               HorizontalAlignment="Center"/>
+                                    <TextBlock Text="Следите за новостями клуба и расписанием тренировок"
+                                               Foreground="#D0D0D0"
+                                               FontSize="20"
+                                               TextAlignment="Center"
+                                               TextWrapping="Wrap"
+                                               MaxWidth="320"/>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                    </Border>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+
+        <Grid Name="TrainerInfoPanel"
+              Background="#99000000"
+              IsVisible="False">
+
+            <Border Width="860"
+                    Background="#EEFFFFFF"
+                    BorderBrush="Transparent"
+                    BorderThickness="0"
+                    CornerRadius="32"
+                    Padding="34"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+
+                <Grid ColumnDefinitions="280,*"
+                      ColumnSpacing="28">
+
+                    <Border Grid.Column="0"
+                            Height="360"
+                            CornerRadius="26"
+                            ClipToBounds="True"
+                            Background="#151515">
+                        <Image Name="TrainerModalImage"
+                               Stretch="UniformToFill"/>
+                    </Border>
+
+                    <StackPanel Grid.Column="1"
+                                Spacing="14">
+                        <TextBlock Name="TrainerModalName"
+                                   Foreground="#141414"
+                                   FontSize="34"
+                                   FontWeight="Bold"
+                                   TextWrapping="Wrap"/>
+
+                        <TextBlock Name="TrainerModalRole"
+                                   Foreground="#E32626"
+                                   FontSize="22"
+                                   FontWeight="SemiBold"
+                                   TextWrapping="Wrap"/>
+
+                        <TextBlock Name="TrainerModalExperience"
+                                   Foreground="#141414"
+                                   FontSize="20"
+                                   TextWrapping="Wrap"/>
+
+                        <TextBlock Name="TrainerModalPrice"
+                                   Foreground="#141414"
+                                   FontSize="20"
+                                   TextWrapping="Wrap"/>
+
+                        <TextBlock Name="TrainerModalCredo"
+                                   Foreground="#6F6F6F"
+                                   FontSize="20"
+                                   FontStyle="Italic"
+                                   TextWrapping="Wrap"/>
+
+                        <TextBlock Name="TrainerModalDescription"
+                                   Foreground="#6F6F6F"
+                                   FontSize="19"
+                                   TextWrapping="Wrap"
+                                   Margin="0,8,0,0"/>
+
+                        <StackPanel Orientation="Horizontal"
+                                    Spacing="14"
+                                    Margin="0,18,0,0">
+
+                            <Button Classes="primaryButton"
+                                    Content="КУПИТЬ ТРЕНИРОВКУ"
+                                    Height="56"
+                                    Width="260"
+                                    Click="BuyTraining"/>
+
+                            <Button Classes="secondaryButton"
+                                    Content="ЗАКРЫТЬ"
+                                    Height="56"
+                                    Width="160"
+                                    Click="CloseTrainerInfo"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <Border Margin="24,0,24,24"
+                Padding="16"
+                Background="#CCFFFFFF"
+                BorderBrush="#66FFFFFF"
+                BorderThickness="1"
+                CornerRadius="26"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom">
+            <StackPanel Orientation="Horizontal"
+                        Spacing="12">
+                <Button Classes="navButton active"
+                        Content="ГЛАВНАЯ"
+                        Width="150"
+                        Height="56"/>
+
+                <Button Classes="navButton"
+                        Content="ПОИСК ЗАНЯТИЙ"
+                        Width="180"
+                        Height="56"
+                        Click="OpenSchedulePage"/>
+
+                <Button Classes="navButton"
+                        Content="НОВОСТИ"
+                        Width="150"
+                        Height="56"
+                        Click="OpenNewsPage"/>
+
+                <Button Classes="navButton"
+                        Content="КУПЛЕННЫЕ ЗАНЯТИЯ"
+                        Width="220"
+                        Height="56"
+                        Click="OpenMyTrainingsPage"/>
+
+                <Button Classes="navButton"
+                        Content="ПРОФИЛЬ"
+                        Width="150"
+                        Height="56"
+                        Click="OpenProfilePage"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

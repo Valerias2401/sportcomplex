@@ -1,0 +1,90 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Assets\Images\group_room.png" />
+    <None Remove="Assets\Images\gym_red.png" />
+    <None Remove="Assets\Images\logo1.ico" />
+    <None Remove="Assets\Images\parking.png" />
+    <None Remove="Assets\Images\showers.png" />
+    <None Remove="Assets\Images\абонемент.png" />
+    <None Remove="Assets\Images\БАСТЕКБОЛ.png" />
+    <None Remove="Assets\Images\Бегун.png" />
+    <None Remove="Assets\Images\бегуны.png" />
+    <None Remove="Assets\Images\боксер.png" />
+    <None Remove="Assets\Images\другое.png" />
+    <None Remove="Assets\Images\зал.png" />
+    <None Remove="Assets\Images\Залик.png" />
+    <None Remove="Assets\Images\йога.png" />
+    <None Remove="Assets\Images\кубок.png" />
+    <None Remove="Assets\Images\новые.png" />
+    <None Remove="Assets\Images\поиск.png" />
+    <None Remove="Assets\Images\ПУЛЬСЫ 1.png" />
+    <None Remove="Assets\Images\раздевалка.png" />
+    <None Remove="Assets\Images\тенис.png" />
+    <None Remove="Assets\Images\тренер.png" />
+    <None Remove="Assets\Images\тренер1.png" />
+    <None Remove="Assets\Images\тренер2.png" />
+    <None Remove="Assets\Images\тренер3.png" />
+    <None Remove="Assets\Images\тренер4.png" />
+    <None Remove="Assets\Images\тренер5.png" />
+    <None Remove="Assets\Images\тренер6.png" />
+    <None Remove="Assets\Images\экончика.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="Assets\Images\экончика.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\Images\group_room.png" />
+    <AvaloniaResource Include="Assets\Images\gym_red.png" />
+    <AvaloniaResource Include="Assets\Images\logo1.ico" />
+    <AvaloniaResource Include="Assets\Images\parking.png" />
+    <AvaloniaResource Include="Assets\Images\showers.png" />
+    <AvaloniaResource Include="Assets\Images\абонемент.png" />
+    <AvaloniaResource Include="Assets\Images\БАСТЕКБОЛ.png" />
+    <AvaloniaResource Include="Assets\Images\Бегун.png" />
+    <AvaloniaResource Include="Assets\Images\бегуны.png" />
+    <AvaloniaResource Include="Assets\Images\боксер.png" />
+    <AvaloniaResource Include="Assets\Images\другое.png" />
+    <AvaloniaResource Include="Assets\Images\зал.png" />
+    <AvaloniaResource Include="Assets\Images\Залик.png" />
+    <AvaloniaResource Include="Assets\Images\йога.png" />
+    <AvaloniaResource Include="Assets\Images\кубок.png" />
+    <AvaloniaResource Include="Assets\Images\новые.png" />
+    <AvaloniaResource Include="Assets\Images\поиск.png" />
+    <AvaloniaResource Include="Assets\Images\ПУЛЬСЫ 1.png" />
+    <AvaloniaResource Include="Assets\Images\раздевалка.png" />
+    <AvaloniaResource Include="Assets\Images\тенис.png" />
+    <AvaloniaResource Include="Assets\Images\тренер.png" />
+    <AvaloniaResource Include="Assets\Images\тренер1.png" />
+    <AvaloniaResource Include="Assets\Images\тренер2.png" />
+    <AvaloniaResource Include="Assets\Images\тренер3.png" />
+    <AvaloniaResource Include="Assets\Images\тренер4.png" />
+    <AvaloniaResource Include="Assets\Images\тренер5.png" />
+    <AvaloniaResource Include="Assets\Images\тренер6.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="11.3.4" />
+    <PackageReference Include="Avalonia.Desktop" Version="11.3.4" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.4" />
+    <PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.4" />
+    <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+    <PackageReference Include="Avalonia.Diagnostics" Version="11.3.4">
+      <IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
+      <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.0" />
+  </ItemGroup>
+</Project>

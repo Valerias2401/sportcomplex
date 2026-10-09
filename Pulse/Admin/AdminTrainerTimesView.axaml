@@ -1,0 +1,311 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Pulse.User.AdminTrainerTimesView">
+
+    <UserControl.Styles>
+        <Style Selector="Button.navButton">
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="FocusAdorner" Value="{x:Null}"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#141414"/>
+            <Setter Property="Background" Value="#FFFFFF"/>
+            <Setter Property="BorderBrush" Value="#E0E0E0"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="20">
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          HorizontalContentAlignment="Center"
+                                          VerticalContentAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="Button.navButton.active">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#E32626"/>
+            <Setter Property="BorderBrush" Value="#E32626"/>
+        </Style>
+
+        <Style Selector="Button.actionButton">
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="FocusAdorner" Value="{x:Null}"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#E32626"/>
+            <Setter Property="BorderBrush" Value="#E32626"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="22">
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          HorizontalContentAlignment="Center"
+                                          VerticalContentAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="Button.cancelButton">
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="FocusAdorner" Value="{x:Null}"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#E32626"/>
+            <Setter Property="Background" Value="#FFFFFF"/>
+            <Setter Property="BorderBrush" Value="#E32626"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="22">
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          HorizontalContentAlignment="Center"
+                                          VerticalContentAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="ComboBox">
+            <Setter Property="Height" Value="58"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Background" Value="#FFFFFF"/>
+            <Setter Property="Foreground" Value="#141414"/>
+            <Setter Property="BorderBrush" Value="#DADADA"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+
+        <Style Selector="TextBox">
+            <Setter Property="Height" Value="58"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Background" Value="#FFFFFF"/>
+            <Setter Property="Foreground" Value="#141414"/>
+            <Setter Property="BorderBrush" Value="#DADADA"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+    </UserControl.Styles>
+
+    <Grid Background="#F4F4F4">
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="40,30,40,150"
+                        HorizontalAlignment="Center">
+
+                <Border Width="1120"
+                        Padding="0"
+                        CornerRadius="30"
+                        Background="#FFFFFF"
+                        BorderBrush="#E0E0E0"
+                        BorderThickness="1"
+                        ClipToBounds="True">
+
+                    <StackPanel>
+                        <Border Background="#151515"
+                                Padding="40,36">
+                            <StackPanel Spacing="12">
+                                <TextBlock Text="График тренеров"
+                                           Foreground="White"
+                                           FontSize="50"
+                                           FontWeight="Bold"/>
+
+                                <TextBlock Text="Свободное время тренеров для создания занятий."
+                                           Foreground="#CFCFCF"
+                                           FontSize="22"
+                                           TextWrapping="Wrap"/>
+
+                                <Border Height="4"
+                                        Width="120"
+                                        Background="#E32626"
+                                        CornerRadius="4"
+                                        HorizontalAlignment="Left"
+                                        Margin="0,6,0,0"/>
+                            </StackPanel>
+                        </Border>
+
+                        <StackPanel Margin="40"
+                                    Spacing="18"
+                                    Name="TimesPanel"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+
+        <Border Margin="24,0,24,24"
+                Padding="16"
+                Background="#FFFFFF"
+                BorderBrush="#E0E0E0"
+                BorderThickness="1"
+                CornerRadius="26"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom">
+            <StackPanel Orientation="Horizontal"
+                        Spacing="12">
+                <Button Classes="navButton"
+                        Content="ГЛАВНАЯ"
+                        Width="150"
+                        Height="56"
+                        Click="OpenHome"/>
+
+                <Button Classes="navButton"
+                        Content="РАСПИСАНИЕ"
+                        Width="170"
+                        Height="56"
+                        Click="OpenSchedule"/>
+
+                <Button Classes="navButton active"
+                        Content="ГРАФИК ТРЕНЕРОВ"
+                        Width="220"
+                        Height="56"/>
+
+                <Button Classes="navButton"
+                        Content="КЛИЕНТЫ"
+                        Width="150"
+                        Height="56"
+                        Click="OpenClients"/>
+
+                <Button Classes="navButton"
+                        Content="ПРОФИЛЬ"
+                        Width="150"
+                        Height="56"
+                        Click="OpenProfile"/>
+            </StackPanel>
+        </Border>
+
+        <Grid Name="CreateTrainingOverlay"
+              Background="#99000000"
+              IsVisible="False">
+
+            <Border Width="620"
+                    Padding="0"
+                    CornerRadius="30"
+                    Background="#FFFFFF"
+                    BorderBrush="Transparent"
+                    BorderThickness="0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    ClipToBounds="True">
+
+                <StackPanel>
+                    <Border Background="#151515"
+                            Padding="34,28">
+                        <StackPanel Spacing="10">
+                            <TextBlock Text="Создать занятие"
+                                       Foreground="White"
+                                       FontSize="38"
+                                       FontWeight="Bold"
+                                       TextAlignment="Center"/>
+
+                            <Border Height="4"
+                                    Width="120"
+                                    Background="#E32626"
+                                    CornerRadius="4"
+                                    HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+
+                    <StackPanel Margin="34"
+                                Spacing="18">
+
+                        <Border Name="CreateMessageBorder"
+                                Background="#33D92525"
+                                BorderBrush="#D92525"
+                                BorderThickness="1"
+                                CornerRadius="18"
+                                Padding="14"
+                                IsVisible="False">
+                            <TextBlock Name="CreateMessageText"
+                                       Text=""
+                                       Foreground="#D92525"
+                                       FontSize="18"
+                                       TextWrapping="Wrap"
+                                       TextAlignment="Center"/>
+                        </Border>
+
+                        <TextBlock Name="SelectedTrainerText"
+                                   Text="Тренер"
+                                   Foreground="#141414"
+                                   FontSize="26"
+                                   FontWeight="Bold"
+                                   TextWrapping="Wrap"/>
+
+                        <TextBlock Name="SelectedTimeText"
+                                   Text="Время"
+                                   Foreground="#6F6F6F"
+                                   FontSize="20"
+                                   TextWrapping="Wrap"/>
+
+                        <StackPanel Spacing="8">
+                            <TextBlock Text="Услуга"
+                                       Foreground="#141414"
+                                       FontSize="20"
+                                       FontWeight="Bold"/>
+                            <ComboBox Name="ServiceComboBox"/>
+                        </StackPanel>
+
+                        <Grid ColumnDefinitions="*,*"
+                              ColumnSpacing="16">
+                            <StackPanel Grid.Column="0"
+                                        Spacing="8">
+                                <TextBlock Text="Начало занятия"
+                                           Foreground="#141414"
+                                           FontSize="20"
+                                           FontWeight="Bold"/>
+                                <TextBox Name="StartTimeTextBox"
+                                         Watermark="Например 11:00"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="1"
+                                        Spacing="8">
+                                <TextBlock Text="Конец занятия"
+                                           Foreground="#141414"
+                                           FontSize="20"
+                                           FontWeight="Bold"/>
+                                <TextBox Name="EndTimeTextBox"
+                                         Watermark="Например 13:00"/>
+                            </StackPanel>
+                        </Grid>
+
+                        <StackPanel Spacing="8">
+                            <TextBlock Text="Количество мест"
+                                       Foreground="#141414"
+                                       FontSize="20"
+                                       FontWeight="Bold"/>
+                            <TextBox Name="MaxPeopleTextBox"
+                                     Watermark="Например 15"/>
+                        </StackPanel>
+
+                        <Grid ColumnDefinitions="*,*"
+                              ColumnSpacing="16">
+                            <Button Grid.Column="0"
+                                    Classes="cancelButton"
+                                    Content="ОТМЕНА"
+                                    Height="60"
+                                    HorizontalAlignment="Stretch"
+                                    Click="CloseCreatePanel"/>
+
+                            <Button Grid.Column="1"
+                                    Classes="actionButton"
+                                    Content="СОЗДАТЬ"
+                                    Height="60"
+                                    HorizontalAlignment="Stretch"
+                                    Click="CreateTraining"/>
+                        </Grid>
+
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

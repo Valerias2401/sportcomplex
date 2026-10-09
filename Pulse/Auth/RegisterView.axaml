@@ -1,0 +1,154 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Pulse.RegisterView">
+
+    <UserControl.Styles>
+        <Style Selector="Button.bigButton">
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="FocusAdorner" Value="{x:Null}"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Name="Root"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="28"
+                            ClipToBounds="True">
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          HorizontalContentAlignment="Center"
+                                          VerticalContentAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="Button.bigButton.primary">
+            <Setter Property="Background" Value="#D92525"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+
+        <Style Selector="Button.bigButton.secondary">
+            <Setter Property="Background" Value="#00000000"/>
+            <Setter Property="BorderBrush" Value="#D92525"/>
+            <Setter Property="BorderThickness" Value="2"/>
+        </Style>
+
+        <Style Selector="Button.bigButton:pointerover /template/ Border#Root">
+            <Setter Property="Opacity" Value="0.92"/>
+        </Style>
+
+        <Style Selector="Button.bigButton:pressed /template/ Border#Root">
+            <Setter Property="Opacity" Value="0.82"/>
+        </Style>
+
+        <Style Selector="TextBox">
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Background" Value="#14000000"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+
+        <Style Selector="DatePicker">
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Background" Value="#14000000"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+
+        <Style Selector="TextBlock.label">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+    </UserControl.Styles>
+
+    <Grid>
+        <Border Width="520"
+                Padding="35"
+                CornerRadius="24"
+                Background="#CC000000"
+                BorderBrush="#33FFFFFF"
+                BorderThickness="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+
+            <StackPanel Spacing="16">
+                <TextBlock Text="РЕГИСТРАЦИЯ"
+                           Foreground="White"
+                           FontSize="34"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,10"/>
+
+                <TextBlock Classes="label" Text="Имя"/>
+                <TextBox Name="NameTextBox"
+                         Watermark="Введите имя"/>
+
+                <TextBlock Classes="label" Text="Email"/>
+                <TextBox Name="EmailTextBox"
+                         Watermark="Введите email"/>
+
+                <TextBlock Classes="label" Text="Пароль"/>
+                <TextBox Name="PasswordTextBox"
+                         PasswordChar="*"
+                         Watermark="Введите пароль"/>
+
+                <TextBlock Classes="label" Text="Дата рождения"/>
+                <DatePicker Name="BirthDatePicker"/>
+
+                <TextBlock Classes="label" Text="Телефон"/>
+                <TextBox Name="PhoneTextBox"
+                         Watermark="Введите телефон"/>
+
+                <StackPanel Spacing="12" Margin="0,12,0,0">
+                    <Button Classes="bigButton primary"
+                            Content="ЗАРЕГИСТРИРОВАТЬСЯ"
+                            Height="60"
+                            HorizontalAlignment="Stretch"
+                            Click="RegisterUser"/>
+
+                    <Button Classes="bigButton secondary"
+                            Content="НАЗАД"
+                            Height="60"
+                            HorizontalAlignment="Stretch"
+                            Click="BackToMain"/>
+                </StackPanel>
+
+                <Border Background="#33D92525"
+                        BorderBrush="#D92525"
+                        BorderThickness="1"
+                        CornerRadius="14"
+                        Padding="12"
+                        IsVisible="False"
+                        Name="ErrorBorder">
+                    <TextBlock Name="ErrorText"
+                               Foreground="#FFB3B3"
+                               FontSize="16"
+                               TextWrapping="Wrap"
+                               TextAlignment="Center"/>
+                </Border>
+
+                <Border Background="#3327AE60"
+                        BorderBrush="#27AE60"
+                        BorderThickness="1"
+                        CornerRadius="14"
+                        Padding="12"
+                        IsVisible="False"
+                        Name="SuccessBorder">
+                    <TextBlock Name="SuccessText"
+                               Foreground="#C8FFD8"
+                               FontSize="16"
+                               TextWrapping="Wrap"
+                               TextAlignment="Center"/>
+                </Border>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

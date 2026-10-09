@@ -1,0 +1,238 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Pulse.User.UserProfileView">
+
+    <UserControl.Styles>
+        <Style Selector="Button.navButton">
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="FocusAdorner" Value="{x:Null}"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#141414"/>
+            <Setter Property="Background" Value="#EEFFFFFF"/>
+            <Setter Property="BorderBrush" Value="#55FFFFFF"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="20">
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          HorizontalContentAlignment="Center"
+                                          VerticalContentAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="Button.navButton.active">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#E32626"/>
+            <Setter Property="BorderBrush" Value="#E32626"/>
+        </Style>
+
+        <Style Selector="Button.actionButton">
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="FocusAdorner" Value="{x:Null}"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#E32626"/>
+            <Setter Property="BorderBrush" Value="#E32626"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="22">
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          HorizontalContentAlignment="Center"
+                                          VerticalContentAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="Button.iconCircleButton">
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="FocusAdorner" Value="{x:Null}"/>
+            <Setter Property="FontSize" Value="34"/>
+            <Setter Property="Foreground" Value="#E32626"/>
+            <Setter Property="Background" Value="#EEFFFFFF"/>
+            <Setter Property="BorderBrush" Value="#55FFFFFF"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Width" Value="74"/>
+            <Setter Property="Height" Value="74"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="37">
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          HorizontalContentAlignment="Center"
+                                          VerticalContentAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+    </UserControl.Styles>
+
+    <Grid>
+        <Image Source="avares://Pulse/Assets/Images/тенис.png"
+               Stretch="UniformToFill"/>
+
+        <Rectangle Fill="#33000000"/>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="30,10,35,150"
+                        HorizontalAlignment="Center">
+
+                <Border Width="900"
+                        Padding="40"
+                        CornerRadius="30"
+                        Background="#CCFFFFFF"
+                        BorderBrush="#55FFFFFF"
+                        BorderThickness="1">
+
+                    <StackPanel Spacing="24">
+
+                        <Grid ColumnDefinitions="*,Auto">
+                            <TextBlock Grid.Column="0"
+                                       Text="Профиль"
+                                       Foreground="#141414"
+                                       FontSize="50"
+                                       FontWeight="Bold"
+                                       VerticalAlignment="Center"/>
+
+                            <StackPanel Grid.Column="1"
+                                        Orientation="Horizontal"
+                                        Spacing="16">
+                                <Button Classes="iconCircleButton"
+                                        Content="✎"
+                                        Click="OpenEditProfile"/>
+
+                                <Button Classes="iconCircleButton"
+                                        Content="↪"
+                                        Click="Logout"/>
+                            </StackPanel>
+                        </Grid>
+
+                        <Border Background="#BBFFFFFF"
+                                BorderBrush="#55FFFFFF"
+                                BorderThickness="1"
+                                CornerRadius="26"
+                                Padding="30">
+                            <StackPanel Spacing="16">
+                                <TextBlock Name="FullNameText"
+                                           Text="ФИО"
+                                           Foreground="#141414"
+                                           FontSize="32"
+                                           FontWeight="Bold"/>
+
+                                <TextBlock Name="EmailText"
+                                           Text="Email"
+                                           Foreground="#5F5F5F"
+                                           FontSize="22"/>
+
+                                <TextBlock Name="PhoneText"
+                                           Text="Телефон"
+                                           Foreground="#5F5F5F"
+                                           FontSize="22"/>
+                            </StackPanel>
+                        </Border>
+
+                        <Border Background="#DD151515"
+                                CornerRadius="28"
+                                Padding="34">
+                            <StackPanel Spacing="18">
+                                <TextBlock Text="Карта клиента"
+                                           Foreground="White"
+                                           FontSize="26"
+                                           FontWeight="Bold"/>
+
+                                <Border Height="4"
+                                        Width="120"
+                                        Background="#E32626"
+                                        CornerRadius="4"
+                                        HorizontalAlignment="Left"/>
+
+                                <TextBlock Name="BalanceText"
+                                           Text="Баланс: 0 ₽"
+                                           Foreground="White"
+                                           FontSize="38"
+                                           FontWeight="Bold"/>
+                            </StackPanel>
+                        </Border>
+
+                        <Border Background="#BBFFFFFF"
+                                BorderBrush="#55FFFFFF"
+                                BorderThickness="1"
+                                CornerRadius="26"
+                                Padding="26">
+                            <StackPanel Spacing="10">
+                                <TextBlock Text="Абонемент"
+                                           Foreground="#141414"
+                                           FontSize="28"
+                                           FontWeight="Bold"/>
+
+                                <TextBlock Name="AbonementText"
+                                           Text="Нет активного абонемента"
+                                           Foreground="#5F5F5F"
+                                           FontSize="22"/>
+                            </StackPanel>
+                        </Border>
+
+                        <Button Classes="actionButton"
+                                Content="КУПИТЬ АБОНЕМЕНТ"
+                                Height="62"
+                                HorizontalAlignment="Stretch"
+                                Click="BuyAbonement"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+
+        <Border Margin="24,0,24,24"
+                Padding="16"
+                Background="#CCFFFFFF"
+                BorderBrush="#66FFFFFF"
+                BorderThickness="1"
+                CornerRadius="26"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom">
+            <StackPanel Orientation="Horizontal" Spacing="12">
+                <Button Classes="navButton"
+                        Content="ГЛАВНАЯ"
+                        Width="150"
+                        Height="56"
+                        Click="OpenMainClubPage"/>
+
+                <Button Classes="navButton"
+                        Content="ПОИСК ЗАНЯТИЙ"
+                        Width="180"
+                        Height="56"
+                        Click="OpenSchedulePage"/>
+
+                <Button Classes="navButton"
+                        Content="НОВОСТИ"
+                        Width="150"
+                        Height="56"
+                        Click="OpenNewsPage"/>
+
+                <Button Classes="navButton"
+                        Content="КУПЛЕННЫЕ ЗАНЯТИЯ"
+                        Width="220"
+                        Height="56"
+                        Click="OpenMyTrainingsPage"/>
+
+                <Button Classes="navButton active"
+                        Content="ПРОФИЛЬ"
+                        Width="150"
+                        Height="56"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>
